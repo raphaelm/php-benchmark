@@ -117,10 +117,10 @@ class BenchmarkResult {
 		
 		switch ($this->type) {
 			case self::TYPE_TIME:
-				$tbl = array(array("Name", "Count", "Percentage"));
+				$tbl = array(array("Name", "Calls", "Percentage"));
 				break;
 			case self::TYPE_COUNT:
-				$tbl = array(array("Name", "Time", "Percentage"));
+				$tbl = array(array("Name", "Time (s)", "Percentage"));
 				break;
 			default:
 				throw new BenchmarkException('Invalid benchmark type.');
