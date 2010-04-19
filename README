@@ -1,0 +1,56 @@
+Hello. This is a PHP5 benchmarking class.
+
+WHY?
+====
+Often there are two or more ways to do the same thing. Sometimes they
+both are nice to write. The key criterion is now: performance. But
+how to test the performance of an PHP code? I'm tired of writing a loop
+for many executations and using microtime(true).
+
+So I've written a class which is able to do this.
+
+HOW?
+====
+This class supports two ways of performance comparison:
+    - The class calls a given function e.g. 10'000 times and clocks the
+      time needed.
+    - The class calls a given function permanently until X seconds
+      running time reached and counts the number of started calls.
+      
+In benchmarks/example.php you can find an working example, which
+compares the „switch“ structure and the „?:“ operator using both
+methods.
+Output may be something like that:
+
+		:php-benchmark/benchmarks$ php example.php
+		Benchmark by time...
+		+-------------+--------+------------+
+		| Name        | Count  | Percentage |
+		+-------------+--------+------------+
+		| ?: operator | 395106 | 100%       |
+		| switch(){}  | 427235 | 108%       |
+		+-------------+--------+------------+
+		Benchmark by calls...
+		+-------------+---------------+------------+
+		| Name        | Time          | Percentage |
+		+-------------+---------------+------------+
+		| switch(){}  | 2.60735988617 | 100%       |
+		| ?: operator | 3.03899979591 | 117%       |
+		+-------------+---------------+------------+
+
+NOTE
+====
+In the context of this class 'performance' is meaned referring to time.
+The class does NOT detect CPU load, RAM usage or such things.
+
+Can I help you?
+===============
+Of course! I'm sure the files contain programming errors and lots of
+English language mistakes. Find them and send them to me ;-)
+
+COPYRIGHT AND LICENSE
+=====================
+Written by Raphael Michel <php-benchmark@raphaelmichel.de>
+Copyright 2010 Raphael Michel
+
+Released under the terms of the GNU General Public License
